@@ -1,0 +1,15 @@
+#version 330 core
+
+layout(location=0) in vec3 vertexPos;
+layout(location=2) in vec2 texCoords;
+
+
+out vec2 textureCoords;
+uniform mat4 ModelMat;
+uniform mat4 ViewMat;
+uniform mat4 ProjMat;
+
+void main(){
+	gl_Position = ProjMat*ViewMat*ModelMat*vec4(vertexPos,1.0);
+	textureCoords = texCoords;
+}
